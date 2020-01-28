@@ -1,0 +1,170 @@
+@page {
+    margin: 0%;
+    size: A4;
+}
+@media print {
+    :root {
+        --ruler-width: 3.5cm;
+        --width: 21.0cm;
+        --height: 29.7cm;
+        --margin-left: 1.2mm;
+        --margin-right: 1.2mm;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, Arial, Sans-Serif;
+    }
+    #ruler-container, body, html {
+        width: var(--width);
+        height: var(--height);
+        box-sizing: border-box;
+    }
+    #ruler {
+        width: var(--ruler-width);
+        height: var(--height);
+        box-sizing: border-box;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        overflow: hidden;
+    }
+    #ruler-right {
+        float: right;
+        transform: scaleX(-1);
+    }
+    .sep {
+        border: none;
+        background-color: black;
+        -webkit-print-color-adjust: exact;
+        position: absolute;
+    }
+    .sep1 {
+        width: 0.9cm;
+        height: 0.24mm;
+    }
+    .sep2 {
+        width: 0.75cm;
+        height: 0.24mm;
+    }
+    .sep3 {
+        width: 0.5cm;
+        height: 0.24mm;
+    }
+    .sep4 {
+        width: 0.3cm;
+        height: 0.24mm;
+    }
+    .label1 {
+        font-size: 2.7mm;
+        position: absolute;
+        transform: rotate(-90deg);
+        transform-origin: top left;
+        top: calc(var(--height) - var(--margin-right));
+        left: 1.3cm;
+    }
+    .label2 {
+        font-size: 2.7mm;
+        position: absolute;
+        transform: rotate(90deg);
+        transform-origin: top left;
+        top: var(--margin-right);
+        left: calc(100% - 1.3cm);
+    }
+    .l1 {
+        font-size: 3.5mm;
+        position: absolute;
+        transform: rotate(-90deg) translateX(-50%);
+        transform-origin: bottom left;
+        left: calc(0.92cm + 15px);
+    }
+    .l2 {
+        font-size: 3.5mm;
+        position: absolute;
+        transform: rotate(90deg) scaleY(-1) translateX(-50%);
+        transform-origin: top left;
+        left: 0.92cm;
+    }    
+}
+:root {
+    --ruler-width: 3.5cm;
+    --width: 21.0cm;
+    --height: 29.7cm;
+    --margin-left: 1.2mm;
+    --margin-right: 1.2mm;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, Sans-Serif;
+}
+#ruler-container, body, html {
+    width: var(--width);
+    height: var(--height);
+    box-sizing: border-box;
+}
+#ruler {
+    width: var(--ruler-width);
+    height: var(--height);
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: black;
+    position: relative;
+    overflow: hidden;
+}
+#ruler-right {
+    float: right;
+    transform: scaleX(-1);
+}
+.sep {
+    border: none;
+    background-color: black;
+    -webkit-print-color-adjust: exact;
+    position: absolute;
+}
+.sep1 {
+    width: 0.9cm;
+    height: 0.24mm;
+}
+.sep2 {
+    width: 0.75cm;
+    height: 0.24mm;
+}
+.sep3 {
+    width: 0.5cm;
+    height: 0.24mm;
+}
+.sep4 {
+    width: 0.3cm;
+    height: 0.24mm;
+}
+.label1 {
+    font-size: 2.7mm;
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    top: calc(var(--height) - var(--margin-right));
+    left: 1.3cm;
+}
+.label2 {
+    font-size: 2.7mm;
+    position: absolute;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    top: var(--margin-right);
+    left: calc(100% - 1.3cm);
+}
+.l1 {
+    font-size: 3.5mm;
+    position: absolute;
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: bottom left;
+    left: calc(0.92cm + 15px);
+}
+.l2 {
+    font-size: 3.5mm;
+    position: absolute;
+    transform: rotate(90deg) scaleY(-1) translateX(-50%);
+    transform-origin: top left;
+    left: 0.92cm;
+}

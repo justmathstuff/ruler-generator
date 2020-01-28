@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Pi Ruler</title>
+        <style>
+            #ruler-iframe {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <select name="left" id="left-select">
+            <option value="MM" selected>MM</option>
+            <option value="CM">CM</option>
+            <option value="IN">IN</option>
+            <option value="PI_MM">PI_MM</option>
+            <option value="PI_CM">PI_CM</option>
+        </select>
+        <select name="right" id="right-select">
+            <option value="MM">MM</option>
+            <option value="CM">CM</option>
+            <option value="IN" selected>IN</option>
+            <option value="PI_MM">PI_MM</option>
+            <option value="PI_CM">PI_CM</option>
+        </select>
+        <button id="print">Print</button><br/>
+        <iframe id="ruler-iframe" src="ruler.html" frameborder="0"></iframe>
+        <script>
+            const Units = {
+                // [d, [unit of d, ]]
+                MM: [0.1, ["cm", "${i/10}", "(cm)", 1], [undefined, 1, 5, 10]],
+                CM: [1, ["cm", "${i}", "(cm)", 1], [undefined, undefined, undefined, 1]],
+                IN: [1/16, ["in", "${v}", "(in)", 1], [1, 2, 4, 16]],
+                PI_MM: [Math.PI, ["mm", "${i/10}", "(π cm)", 1], [undefined, 1, 5, 10]],
+                PI_CM: [Math.PI, ["cm", "${i}", "(π cm)", 1], [undefined, undefined, undefined, 1]]
+            };
+            let print = document.getElementById("print");
+            let iframe = document.getElementById("ruler-iframe");
+            print.addEventListener("click", e => {
+                iframe.contentWindow.print();
+            });
+            let leftSelect = document.getElementById("left-select");
+            let rightSelect = document.getElementById("right-select");
+            leftSelect.addEventListener("change", () => {
+                iframe.contentWindow.buildRuler(Units[leftSelect.value], Units[rightSelect.value]);
+            });
+            rightSelect.addEventListener("change", () => {
+                iframe.contentWindow.buildRuler(Units[leftSelect.value], Units[rightSelect.value]);
+            });
+        </script>
+    </body>
+</html>
